@@ -45,8 +45,8 @@
                     
                     </div>
                     <div class="row">
-                        <div class="col-md-2"></div>
-                        <div class="col-md-8">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10">
                             <div class="card">                        
                                 <div class="card-body">
                                     <table id="list-application" class="table table-bordered table-striped">
@@ -73,7 +73,44 @@
         </div>
 
     </div>
-
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header" style="border: none;">
+                <h5 class="modal-title" id="exampleModalLabel">Detail Lamaran</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <p class="text-muted">Tanggal Apply</p>
+                    <p class="font-weight-bold">10-01-2022</p>
+                </div>
+                <div class="form-group">
+                    <p class="text-muted">Jabatan</p>
+                    <p class="font-weight-bold">Frontend Web Programmer</p>
+                </div>
+                <div class="form-group">
+                    <p class="text-muted">Telepon</p>
+                    <p class="font-weight-bold">085383944483</p>
+                </div>
+                <div class="form-group">
+                    <p class="text-muted">Email</p>
+                    <p class="font-weight-bold">bagus@gamil.com</p>
+                </div>
+                <div class="form-group">
+                    <p class="text-muted">Tahun Lahir</p>
+                    <p class="font-weight-bold">1998</p>
+                </div>
+            </div>
+            <div class="modal-footer" style="border: none;">
+                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+            </div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://adminlte.io/themes/v3/plugins/jquery/jquery.min.js"></script>
 
@@ -158,7 +195,7 @@
                     {
                         render: function (data, type, row) {
                             return `
-                                <a class="" href="#"><i class="fas fa-search mr-2"></i></a>
+                                <a class="" data-toggle="modal" data-target="#exampleModal" href="#"><i class="fa fa-info-circle mr-2"></i></a>
                                 <a class="" href="#"><i class="fa fa-trash mr-2"></i></a>
                             `
                         }, targets: [4]

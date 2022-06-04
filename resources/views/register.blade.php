@@ -113,6 +113,9 @@
                                             <div class="col-md-12">
                                                 <input type="file" class="form-control" name="application_file" id="application_file"/>
                                             </div>
+                                            @error('application_file')
+                                                <div class="text-red col-form-label">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                             <div class="form-group">
                                                 <div class="text-center">

@@ -132,7 +132,24 @@
 						let day = String(dateObj.getDate()).padStart(2, '0');
 						let month = String(parseInt(dateObj.getMonth()) + 1).padStart(2, '0');
 						let year = dateObj.getFullYear();
-						let output = day + '/' + month  + '/' + year;
+                        const months = {
+                            0: 'January',
+                            1: 'February',
+                            2: 'March',
+                            3: 'April',
+                            4: 'May',
+                            5: 'June',
+                            6: 'July',
+                            7: 'August',
+                            8: 'September',
+                            9: 'October',
+                            10: 'November',
+                            11: 'December'
+                        }
+                        const monthIndex = dateObj.getMonth()
+                        const monthName = months[monthIndex]
+                        console.log(monthName)
+						let output = day + ' ' + monthName  + ' ' + year;
 
 						return output;
 					},

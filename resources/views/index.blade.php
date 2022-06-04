@@ -134,7 +134,7 @@
 						let year = dateObj.getFullYear();
 						let output = day + '/' + month  + '/' + year;
 
-						return `<a href="javascript:void(0)"></a>` +'<br>'+output;
+						return output;
 					},
 					targets: [1]
 				},

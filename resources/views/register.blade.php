@@ -75,7 +75,7 @@
                                             <div class="form-group">
                                                 <label for="">Telepon</label>
                                                 <div class="input-group">
-                                                    <input name="telephone" class="form-control numberfield valid" placeholder="089234766643">
+                                                    <input name="telephone" class="form-control numberfield valid" placeholder="089234766643" value="{{ old('telephone') }}">
                                                     <div class="input-group-append">
                                                         <div class="input-group-text"><i class="fas fa-phone"></i></div>
                                                     </div>
@@ -87,7 +87,7 @@
                                             <div class="form-group">
                                                 <label for="">Email</label>
                                                 <div class="input-group">
-                                                    <input name="email" type="email" class="form-control" placeholder="Cth:energeekmail@gmail.com">
+                                                    <input name="email" type="email" class="form-control" placeholder="Cth:energeekmail@gmail.com" value="{{ old('email') }}">
                                                     <div class="input-group-append">
                                                         <div class="input-group-text"><i class="fa fa-envelope"></i></div>
                                                     </div>
@@ -99,7 +99,7 @@
                                             <div class="form-group">
                                                 <label for="">Tahun Lahir</label>
                                                 <div class="input-group">
-                                                    <input name="date_of_birth" type="text" class="form-control" placeholder="1998">
+                                                    <input name="date_of_birth" type="text" class="form-control" placeholder="1998" value="{{ old('date_of_birth') }}">
                                                     <div class="input-group-append">
                                                         <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                                     </div>

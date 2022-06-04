@@ -22,9 +22,8 @@
     <link rel="stylesheet" href="https://adminlte.io/themes/v3/plugins/select2/css/select2.min.css">
     <link rel="stylesheet" href="https://adminlte.io/themes/v3/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
 
-    <link rel="stylesheet" href="https://cmms-laravel.biissolution.com/adminlte/component/bootstrap-fileinput/css/fileinput.min.css">
-    <link rel="stylesheet" href="https://cmms-laravel.biissolution.com/adminlte/component/bootstrap-fileinput/themes/explorer-fas/theme.min.css">
-    <link rel="stylesheet" href="https://cmms-laravel.biissolution.com/adminlte/component/gritter/css/jquery.gritter.min.css">
+    <link href="{{asset('assets/css/fileinput.min.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/css/theme.min.css')}}" rel="stylesheet">
     <script
         nonce="e6c1a309-fe8e-440d-8396-baddc6d9fb5e">(function (w, d) { !function (a, e, t, r) { a.zarazData = a.zarazData || {}, a.zarazData.executed = [], a.zaraz = { deferred: [] }, a.zaraz.q = [], a.zaraz._f = function (e) { return function () { var t = Array.prototype.slice.call(arguments); a.zaraz.q.push({ m: e, a: t }) } }; for (const e of ["track", "set", "ecommerce", "debug"]) a.zaraz[e] = a.zaraz._f(e); a.addEventListener("DOMContentLoaded", (() => { var t = e.getElementsByTagName(r)[0], z = e.createElement(r), n = e.getElementsByTagName("title")[0]; for (n && (a.zarazData.t = e.getElementsByTagName("title")[0].text), a.zarazData.x = Math.random(), a.zarazData.w = a.screen.width, a.zarazData.h = a.screen.height, a.zarazData.j = a.innerHeight, a.zarazData.e = a.innerWidth, a.zarazData.l = a.location.href, a.zarazData.r = e.referrer, a.zarazData.k = a.screen.colorDepth, a.zarazData.n = e.characterSet, a.zarazData.o = (new Date).getTimezoneOffset(), a.zarazData.q = []; a.zaraz.q.length;) { const e = a.zaraz.q.shift(); a.zarazData.q.push(e) } z.defer = !0; for (const e of [localStorage, sessionStorage]) Object.keys(e).filter((a => a.startsWith("_zaraz_"))).forEach((t => { try { a.zarazData["z_" + t.slice(7)] = JSON.parse(e.getItem(t)) } catch { a.zarazData["z_" + t.slice(7)] = e.getItem(t) } })); z.referrerPolicy = "origin", z.src = "/cdn-cgi/zaraz/s.js?z=" + btoa(encodeURIComponent(JSON.stringify(a.zarazData))), t.parentNode.insertBefore(z, t) })) }(w, d, 0, "script"); })(window, document);</script>
 </head>
@@ -59,18 +58,18 @@
                                         <p class="login-box-msg">
                                             <b>Apply Lamaran</b>
                                         </p>
-                                        <form id="form" action="{{url('application/store')}}" method="POST" enctype="multipart/form-data">
+                                        <form action="{{url('application/store')}}" method="POST"  enctype="multipart/form-data">
                                             {{ csrf_field() }}
                                             <div class="form-group">
                                                 <label>Jabatan</label>
-                                                <select name="title_id" class="form-control select2bs4" style="width: 100%;" placeholder="Pilih Jabatan" required>
+                                                <select name="title_id" class="form-control select2bs4" style="width: 100%;" placeholder="Pilih Jabatan" require>
                                                     <option value=""></option>
                                                     <option value="1">Frontend Web Programmer</option>
                                                     <option value="2">Fullstack Web Programmer</option>
                                                     <option value="3">Quality Control</option>
                                                 </select>
                                                 @error('title_id')
-                                                    <div class="valid-feedback">{{ $message }}</div>
+                                                    <div class="text-red col-form-label">{{ $message }}</div>
                                                 @enderror
                                             </div>
                                             <div class="form-group">
@@ -82,7 +81,7 @@
                                                     </div>
                                                 </div>
                                                 @error('telephone')
-                                                    <div class="valid-feedback">{{ $message }}</div>
+                                                    <div class="text-red col-form-label">{{ $message }}</div>
                                                 @enderror
                                             </div>
                                             <div class="form-group">
@@ -94,7 +93,7 @@
                                                     </div>
                                                 </div>
                                                 @error('email')
-                                                    <div class="valid-feedback">{{ $message }}</div>
+                                                    <div class="text-red col-form-label">{{ $message }}</div>
                                                 @enderror
                                             </div>
                                             <div class="form-group">
@@ -106,16 +105,13 @@
                                                     </div>
                                                 </div>
                                                 @error('date_of_birth')
-                                                    <div class="valid-feedback">{{ $message }}</div>
+                                                    <div class="text-red col-form-label">{{ $message }}</div>
                                                 @enderror
                                             </div>
                                             <div class="form-group">
                                             <label >Berkas Lamaran</label>
                                             <div class="col-md-12">
-                                                <input type="file" class="form-control" name="application_file" id="application_file"/ required>
-                                                @error('application_file')
-                                                    <div class="valid-feedback">{{ $message }}</div>
-                                                @enderror
+                                                <input type="file" class="form-control" name="application_file" id="application_file"/>
                                             </div>
                                         </div>
                                             <div class="form-group">
@@ -156,13 +152,8 @@
     
     <script src="https://adminlte.io/themes/v3/dist/js/adminlte.min.js?v=3.2.0"></script>
 
-
-    <script src="https://cmms-laravel.biissolution.com/adminlte/component/bootstrap-fileinput/js/fileinput.min.js"></script>
-    <script src="https://cmms-laravel.biissolution.com/adminlte/component/bootstrap-fileinput/themes/explorer-fas/theme.min.js"></script>
-
-    <script src="https://cmms-laravel.biissolution.com/assets/js/plugins/validate/jquery.validate.min.js"></script>
-    <script src="https://cmms-laravel.biissolution.com/adminlte/component/gritter/js/jquery.gritter.min.js"></script>
-    <script src="https://cmms-laravel.biissolution.com/adminlte/component/bootbox/bootbox.min.js"></script>
+    <script src="{{asset('assets/js/fileinput.min.js')}}"></script>
+    <script src="{{asset('assets/js/theme.min.js')}}"></script>
     <script type="text/javascript">
         $(function () {
             //Initialize Select2 Elements
@@ -186,8 +177,6 @@
                 ],
                 theme: 'explorer-fas'
             });
-
-            
 
         });
     </script>

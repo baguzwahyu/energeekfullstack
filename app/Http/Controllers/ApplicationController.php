@@ -80,14 +80,7 @@ class ApplicationController extends Controller
             'telephone'     => 'required|numeric',
             'date_of_birth' => 'required|numeric',
             'application_file' => 'required|mimes:pdf'
-         ]);
-        // if ($validator->fails()) {
-        // 	return response()->json([
-        // 		'status' 	=> false,
-        // 		'message' 	=> $validator->errors()->first()
-        // 	], 400);
-        // }
-
+        ]);
         $application = Application::create([
             'title_id'      => $request->title_id,
 			'email'         => $request->email,
@@ -105,19 +98,11 @@ class ApplicationController extends Controller
             $application_file->move($src, $filename);
             $application->application_file = $src . '/' . $filename;
             $application->save();
+            return view('index');
         }
         if (!$application) {
-            DB::rollback();
-            // return response()->json([
-            //     'status' => false,
-            //     'message' 	=> $application
-            // ], 400);
             return redirect()->back();
         }
-        // return response()->json([
-        // 	'status' 	=> true,
-        // 	'results' 	=> url('list'),
-        // ], 200);
         return view('index');
     }
 
